@@ -37,7 +37,13 @@ Route::middleware(['connectedUsers'])->group(function () {
     Route::post('/login', [UsersController::class, 'Auth']);
 });
 
-Route::get('/home', [HomeController::class, 'index'])->middleware('notConnectedUsers');
-
-Route::get('/profile',[ProfileController::class, 'index'])->middleware('notConnectedUsers');
-Route::get('/disconnect',[UsersController::class, 'UserDisconnect'])->middleware('notConnectedUsers');
+Route::middleware(['notConnectedUsers'])->group(function () {
+    Route::get('/home', [HomeController::class, 'index']);
+    
+    
+    Route::get('/profile',[ProfileController::class, 'getProfile']);
+    Route::get('/profile/{username}',[ProfileController::class, 'index']);
+    Route::get('/profile/{username}/parameter',[ProfileController::class, 'profileParameter']);
+    
+    Route::get('/disconnect',[UsersController::class, 'UserDisconnect']);
+});

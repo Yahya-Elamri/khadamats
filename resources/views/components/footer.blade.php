@@ -38,7 +38,7 @@
                         <li class="p-2 rounded-full border border-white cursor-pointer hover:opacity-50">@include('icons.tiktok',['width' => '25px'])</li>
                     </ul>
                 </div>
-                <img class="w-[15%] cursor-pointer" src="assets/khadamats.png" alt="khadamats logo">
+                <img class="w-[15%] cursor-pointer" src="/assets/khadamats.png" alt="khadamats logo">
             </div>
         </div>
         <div class="flex justify-start gap-12 items-center p-4">

@@ -45,10 +45,10 @@
                     @include('icons.notification',['width' => '25px'])
                 </div>
                 <div class="dropdown">
-                    <img class="w-14 rounded-full cursor-pointer border border-[#d5e0d5] dropbtn" src="assets/{{ $data->profile_image }}" onclick="toggleDropdown()" alt="profile_pic">
+                    <img class="w-14 rounded-full cursor-pointer border border-[#d5e0d5] dropbtn" src="/assets/{{ $data->profile_image }}" onclick="toggleDropdown()" alt="profile_pic">
                     <div class="dropdown-content hidden bg-[#f9f9f9] border border-[#d5e0d5] absolute top-[55px] right-0" id="myDropdown">
-                        <a class="block px-4 py-2" href="/profile">Profile</a>
-                        <a class="block px-4 py-2" href="#">Parameter</a>
+                        <a class="block px-4 py-2" href="/profile/{{ $data->username }}">Profile</a>
+                        <a class="block px-4 py-2" href="/profile/{{ $data->username }}/parameter">Parameter</a>
                         <a class="block px-4 py-2" href="/disconnect">Se Deconnecter</a>
                     </div>
                 </div>
