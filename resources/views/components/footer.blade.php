@@ -33,9 +33,9 @@
                 <div class="flex items-center gap-10">
                     <h1 class="text-2xl poppins-regular text-white">Follow Us On</h1>
                     <ul class="flex items-center gap-6">
-                        <li class="p-2 rounded-full border border-white cursor-pointer hover:opacity-50">@include('components.icons.instagram',['width' => '25px'])</li>
-                        <li class="p-2 rounded-full border border-white cursor-pointer hover:opacity-50">@include('components.icons.facebook',['width' => '25px'])</li>
-                        <li class="p-2 rounded-full border border-white cursor-pointer hover:opacity-50">@include('components.icons.tiktok',['width' => '25px'])</li>
+                        <li class="p-2 rounded-full border border-white cursor-pointer hover:opacity-50">@include('icons.instagram',['width' => '25px'])</li>
+                        <li class="p-2 rounded-full border border-white cursor-pointer hover:opacity-50">@include('icons.facebook',['width' => '25px'])</li>
+                        <li class="p-2 rounded-full border border-white cursor-pointer hover:opacity-50">@include('icons.tiktok',['width' => '25px'])</li>
                     </ul>
                 </div>
                 <img class="w-[15%] cursor-pointer" src="assets/khadamats.png" alt="khadamats logo">

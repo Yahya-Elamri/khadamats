@@ -24,7 +24,7 @@
 <div class="w-full h-[70px] sticky top-0 bg-white border-b border-[#d5e0d5] shadow-sm z-50">
     <div class="h-full container flex mx-auto justify-between items-center">
         <div class="flex gap-10 items-center h-full">
-            <img class="w-[196px] cursor-pointer" src="/assets/khadamats.png" alt="tt">
+            <a href="/"><img class="w-[196px] cursor-pointer" src="/assets/khadamats.png" alt="tt"></a>
             <ul class="flex gap-3 items-center h-full z-50">
                 <div class="dropdown h-full flex items-center z-50">
                     <li class="cursor-pointer poppins-regular">Trouver des talents</li>
@@ -37,7 +37,7 @@
                                 <div class="subMenu">
                                     <a href="#" class="flex flex-col gap-3 hover:bg-[#44baae] p-4 rounded-xl focus:bg-[#44baae]">
                                         <div class="z-50 flex flex-col gap-3">
-                                            <h1>Publiez une offre d'emploi et embauchez un pro</h1> 
+                                            <h1 class="poppins-regular">Publiez une offre d'emploi et embauchez un pro</h1> 
                                             <p>Marché des talents</p>
                                         </div>
                                     </a>
@@ -162,8 +162,8 @@
                 <div></div>
             </div>
             <div class="flex gap-5 items-center">
-                <button class="poppins-regular">Log in</button>
-                <button class="poppins-regular bg-[#44baae] px-4 py-2 rounded-full text-white hover:bg-[#286d66]">Sign up</button>
+                <button class="poppins-regular"><a href="/login">Log in</a></button>
+                <button class="poppins-regular bg-[#44baae] px-4 py-2 rounded-full text-white hover:bg-[#286d66]"><a href="/signup">Sign up</a></button>
             </div>
         </div>
     </div>

@@ -4,7 +4,7 @@
                         <div class="flex justify-start items-center gap-10 2xl:gap-20">
                             <p class="flex items-center gap-1 poppins-regular font-normal text-stone-400">
                                 <span>
-                                    @include('components.icons.star')
+                                    @include('icons.star')
                                 </span>4.85/5.00
                             </p>
                             <p class="poppins-regular font-normal text-stone-400">263 Skills</p>
@@ -15,7 +15,7 @@
                         <div class="flex justify-start items-center gap-10 2xl:gap-20">
                             <p class="flex items-center gap-1 poppins-regular font-normal text-stone-400">
                                 <span>
-                                    @include('components.icons.star')
+                                    @include('icons.star')
                                 </span>4.65/5.00
                             </p>
                             <p class="poppins-regular font-normal text-stone-400">359 Skills</p>
@@ -26,7 +26,7 @@
                         <div class="flex justify-start items-center gap-10 2xl:gap-20">
                             <p class="flex items-center gap-1 poppins-regular font-normal text-stone-400">
                                 <span>
-                                    @include('components.icons.star')
+                                    @include('icons.star')
                                 </span>4.95/5.00
                             </p>
                             <p class="poppins-regular font-normal text-stone-400">745 Skills</p>
@@ -37,7 +37,7 @@
                         <div class="flex justify-start items-center gap-10 2xl:gap-20">
                             <p class="flex items-center gap-1 poppins-regular font-normal text-stone-400">
                                 <span>
-                                    @include('components.icons.star')
+                                    @include('icons.star')
                                 </span>4.72/5.00
                             </p>
                             <p class="poppins-regular font-normal text-stone-400">365 Skills</p>
@@ -48,7 +48,7 @@
                         <div class="flex justify-start items-center gap-10 2xl:gap-20">
                             <p class="flex items-center gap-1 poppins-regular font-normal text-stone-400">
                                 <span>
-                                    @include('components.icons.star')
+                                    @include('icons.star')
                                 </span>4.96/5.00
                             </p>
                             <p class="poppins-regular font-normal text-stone-400">913 Skills</p>
@@ -59,7 +59,7 @@
                         <div class="flex justify-start items-center gap-10 2xl:gap-20">
                             <p class="flex items-center gap-1 poppins-regular font-normal text-stone-400">
                                 <span>
-                                    @include('components.icons.star')
+                                    @include('icons.star')
                                 </span>4.85/5.00
                             </p>
                             <p class="poppins-regular font-normal text-stone-400">196 Skills</p>
@@ -70,7 +70,7 @@
                         <div class="flex justify-start items-center gap-10 2xl:gap-20">
                             <p class="flex items-center gap-1 poppins-regular font-normal text-stone-400">
                                 <span>
-                                    @include('components.icons.star')
+                                    @include('icons.star')
                                 </span>4.14/5.00
                             </p>
                             <p class="poppins-regular font-normal text-stone-400">536 Skills</p>
@@ -81,7 +81,7 @@
                         <div class="flex justify-start items-center gap-10 2xl:gap-20">
                             <p class="flex items-center gap-1 poppins-regular font-normal text-stone-400">
                                 <span>
-                                    @include('components.icons.star')
+                                    @include('icons.star')
                                 </span>4.32/5.00
                             </p>
                             <p class="poppins-regular font-normal text-stone-400">210 Skills</p>
