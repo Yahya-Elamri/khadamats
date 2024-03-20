@@ -21,8 +21,22 @@ class ProfileController extends Controller
         $UserData = UserCreation::select('*')->where('id',$id)->where('username',$username)->get();
         return view('connectedUsers.profileParameter',['UserData' => $UserData]);
     }
+    
     function getProfile(Request $request){
-        $UserData = UserCreation::select('*')->where('username',$request->username)->get();
-        return view('profile',['UserData' => $UserData]);
+        if ($request->username) {
+            $id = $request->session()->get('id');
+            $UserData = UserCreation::select('*')->where('id',$id)->get();
+            $User = UserCreation::select('*')->where('username',$request->username)->get();
+    
+            foreach($User as $data){
+                if($data->id == $id){
+                    return redirect('/'.$data->username);
+                }
+            }
+            
+            return view('connectedUsers.profiles',['UserData' => $UserData,'User' => $User]);
+        }else{
+            return redirect('/home');
+        }
     }
 }

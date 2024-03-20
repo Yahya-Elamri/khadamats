@@ -41,32 +41,6 @@
                 <h1 class="poppins-regular text-xl md:text-2xl uppercase">{{ $data->nom }} {{ $data->prenom }}</h1>
             </div>
             <div class="w-full">
-                <h1 class="w-full poppins-regular text-xl md:text-2xl uppercase">Description :</h1>
-                <p>
-                    @if ($data->description == NULL)
-                        <div class="flex items-center gap-3">
-                            <span>ajouter votre description</span>
-                            <a href="">@include('icons.pen',['width' => '20px','style' =>''])</a>
-                        </div>
-                    @else
-                        {{ $data->description }}
-                    @endif
-                </p>
-            </div>
-            <div class="w-full">
-                <h1 class="w-full poppins-regular text-xl md:text-2xl uppercase">Categories :</h1>
-                <p>
-                    @if ($data->Categories == NULL)
-                        <div class="flex items-center gap-3">
-                            <span>ajouter votre Categories</span>
-                            <a href="">@include('icons.pen',['width' => '20px','style' =>''])</a>
-                        </div>
-                    @else
-                        {{ $data->Categories }}
-                    @endif
-                </p>
-            </div>
-            <div class="w-full">
                 <h1 class="w-full poppins-regular text-xl md:text-2xl uppercase">Proffesion :</h1>
                 <p>
                     @if ($data->Proffesion == NULL)
@@ -76,19 +50,6 @@
                         </div>
                     @else
                         {{ $data->Proffesion }}
-                    @endif
-                </p>
-            </div>
-            <div class="w-full">
-                <h1 class="w-full poppins-regular text-xl md:text-2xl uppercase">Diplome :</h1>
-                <p>
-                    @if ($data->Diplome == NULL)
-                        <div class="flex items-center gap-3">
-                            <span>ajouter votre Diplome</span>
-                            <a href="">@include('icons.pen',['width' => '20px','style' =>''])</a>
-                        </div>
-                    @else
-                        {{ $data->Diplome }}
                     @endif
                 </p>
             </div>
@@ -105,6 +66,45 @@
                     @endif
                 </p>
             </div>
+            <div class="w-full">
+                <h1 class="w-full poppins-regular text-xl md:text-2xl uppercase">Description :</h1>
+                <p >
+                    @if ($data->description == NULL)
+                        <div class="flex items-center gap-3">
+                            <span>ajouter votre description</span>
+                            <a href="">@include('icons.pen',['width' => '20px','style' =>''])</a>
+                        </div>
+                    @else
+                        <span class="poppins-regular text-xl">{{ $data->description }}</span>
+                    @endif
+                </p>
+            </div>
+            <div class="w-full">
+                <h1 class="w-full poppins-regular text-xl md:text-2xl uppercase">Diplome :</h1>
+                <p>
+                    @if ($data->Diplome == NULL)
+                        <div class="flex items-center gap-3">
+                            <span>ajouter votre Diplome</span>
+                            <a href="">@include('icons.pen',['width' => '20px','style' =>''])</a>
+                        </div>
+                    @else
+                        {{ $data->Diplome }}
+                    @endif
+                </p>
+            </div>
+                <div class="w-full">
+                    <h1 class="w-full poppins-regular text-xl md:text-2xl uppercase">Categories : </h1>
+                    <p>
+                        @if ($data->Categories == NULL)
+                            <div class="flex items-center gap-3">
+                                <span>ajouter votre Categories</span>
+                                <a href="">@include('icons.pen',['width' => '20px','style' =>''])</a>
+                            </div>
+                        @else
+                            {{ $data->Categories }}
+                        @endif
+                    </p>
+                </div>
         </div>
     </div>
 @endforeach

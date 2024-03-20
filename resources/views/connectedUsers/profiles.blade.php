@@ -1,6 +1,6 @@
 @extends('connectedUsers.master')
 @section('contents')
-@foreach($UserData as $data)
+@foreach($User as $data)
     <div class="container flex items-start gap-5 mx-auto my-20 ">
         <div class="w-[30%] flex flex-col items-center gap-5">
             <div class="w-[100px] h-[100px] md:w-[250px] md:h-[250px] bg-cover bg-center rounded-full border border-[#d5e0d5]" style="background-image: url(/assets/{{ $data->profile_image }})">

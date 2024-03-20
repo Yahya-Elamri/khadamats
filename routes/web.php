@@ -40,10 +40,10 @@ Route::middleware(['connectedUsers'])->group(function () {
 Route::middleware(['notConnectedUsers'])->group(function () {
     Route::get('/home', [HomeController::class, 'index']);
     
+    Route::get('/disconnect',[UsersController::class, 'UserDisconnect']);
     
     Route::get('/profile',[ProfileController::class, 'getProfile']);
-    Route::get('/profile/{username}',[ProfileController::class, 'index']);
-    Route::get('/profile/{username}/parameter',[ProfileController::class, 'profileParameter']);
+    Route::get('/{username}',[ProfileController::class, 'index']);
+    Route::get('/{username}/parameter',[ProfileController::class, 'profileParameter']);
     
-    Route::get('/disconnect',[UsersController::class, 'UserDisconnect']);
 });
