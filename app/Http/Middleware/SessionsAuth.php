@@ -15,7 +15,7 @@ class SessionsAuth
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if ($request->session()->get('id', $request->username) == NULL) {
+        if ($request->session()->get('id', $request->id) == NULL) {
             return redirect("/login");
         }
         return $next($request);

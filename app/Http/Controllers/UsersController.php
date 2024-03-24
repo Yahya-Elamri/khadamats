@@ -18,13 +18,64 @@ class UsersController extends Controller
         if($id->isEmpty()){
             return 'not found';
         }
-        if($request->conditions == 'on'){
+        if ($request->conditions == 'on') {
             foreach ($id as $object) {
                 $id = $object->id ;
             }
             $request->session()->put('id', $id);
+            $minutes = 400;
+            $request->session()->put('conditions', true);
+            session()->put('_token', session()->token(), $minutes);
+        } else {
+            foreach ($id as $object) {
+                $id = $object->id ;
+            }
+            $request->session()->put('id', $id);
+            $request->session()->forget('conditions');
         }
         UserCreation::where(function($query)use ($request){$query->where('username', $request->username)->orWhere('email', $request->username);})->update(['availabilite' => 1]);
+        return redirect("/home");
+    }
+
+    function updateUser(Request $request){
+        $request->validate([
+            'image' => 'image|mimes:jpeg,png,jpg|max:1024',
+        ]);
+        if($request->nom){
+            UserCreation::where('id',$request->session()->get('id'))->update(['nom' => $request->nom]);
+        }
+        if($request->prenom){
+            UserCreation::where('id',$request->session()->get('id'))->update(['prenom' => $request->prenom]);
+        }
+        if($request->telephone){
+            UserCreation::where('id',$request->session()->get('id'))->update(['telephone' => $request->telephone]);
+        }
+        if($request->adresse){
+            UserCreation::where('id',$request->session()->get('id'))->update(['adresse' => $request->adresse]);
+        }
+        if($request->email){
+            UserCreation::where('id',$request->session()->get('id'))->update(['email' => $request->email]);
+        }
+        if($request->description){
+            UserCreation::where('id',$request->session()->get('id'))->update(['description' => $request->description]);
+        }
+        if($request->categorie){
+            UserCreation::where('id',$request->session()->get('id'))->update(['categorie' => $request->categorie]);
+        }
+        if($request->proffession){
+            UserCreation::where('id',$request->session()->get('id'))->update(['proffession' => $request->proffession]);
+        }
+        if($request->diplome){
+            UserCreation::where('id',$request->session()->get('id'))->update(['diplome' => $request->diplome]);
+        }
+        if($request->experience){
+            UserCreation::where('id',$request->session()->get('id'))->update(['experience' => $request->experience]);
+        }
+        if($request->image){
+            $imageName = time().'.'.$request->image->extension();  
+            $request->image->move(public_path('profileimages'), $imageName);
+            UserCreation::where('id',$request->session()->get('id'))->update(['profile_image' => $imageName]);
+        }
         return redirect("/home");
     }
 

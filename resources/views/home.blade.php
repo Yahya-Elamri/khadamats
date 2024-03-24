@@ -17,7 +17,7 @@
             <div class="w-[40%] flex flex-col gap-10">
                 <h1 class="text-6xl poppins-regular font-normal">Améliorez votre façon de travailler</h1>
                 <div class="flex items-start gap-5">
-                    @include('icons.pen',['width' => '50px','style'=>'m-2'])
+                    @include('icons.pen',['width' => '50px','style'=>'m-2','color'=>'#000000'])
                     <div>
                         <h1 class="text-3xl poppins-regular font-light">L'inscription est gratuite.</h1>
                         <p class="text-lg poppins-regular font-extralight">Rejoignez-nous pour découvrir des professionnels, explorer des projets, ou réserver une consultation.</p>

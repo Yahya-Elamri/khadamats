@@ -16,7 +16,7 @@
     .show{
         display:block
     }
-    .dropdown-content a:hover {background-color: #f1f1f1}
+    .dropdown-content a:hover {background-color: #f1f1f1;border-radius: 0.75rem}
 </style>
 @foreach($UserData as $data)
 <div class="w-full h-[70px] sticky top-0 bg-white border-b border-[#d5e0d5] shadow-sm z-50">
@@ -45,8 +45,8 @@
                     @include('icons.notification',['width' => '25px'])
                 </div>
                 <div class="dropdown">
-                    <div class="w-[56px] h-[56px] cursor-pointer bg-cover bg-center rounded-full dropbtn border border-[#d5e0d5]" style="background-image: url(/assets/Default-profile-pic.jpg)" onclick="toggleDropdown()"></div>
-                    <div class="dropdown-content hidden bg-[#f9f9f9] border border-[#d5e0d5] absolute top-[55px] right-0" id="myDropdown">
+                    <div class="w-[56px] h-[56px] cursor-pointer bg-cover bg-center rounded-full dropbtn border border-[#d5e0d5]" style="background-image: url(/profileimages/{{ $data->profile_image }})" onclick="toggleDropdown()"></div>
+                    <div class="dropdown-content hidden bg-[#f9f9f9] border rounded-xl border-[#d5e0d5] absolute top-[55px] right-0" id="myDropdown">
                         <a class="block px-4 py-2" href="/{{ $data->username }}">Profile</a>
                         <a class="block px-4 py-2" href="/{{ $data->username }}/parameter">Parameter</a>
                         <a class="block px-4 py-2" href="/disconnect">Se Deconnecter</a>

@@ -22,7 +22,7 @@ use Illuminate\Http\Request;
 Route::middleware(['connectedUsers'])->group(function () {
     Route::get('/', function () {
         return view('home');
-    })->middleware('connectedUsers');
+    });
     
     Route::get('/signup',function(){
         return view('signup');
@@ -42,8 +42,9 @@ Route::middleware(['notConnectedUsers'])->group(function () {
     
     Route::get('/disconnect',[UsersController::class, 'UserDisconnect']);
     
-    Route::get('/profile',[ProfileController::class, 'getProfile']);
+    Route::get('/profile/{username}',[ProfileController::class, 'getProfile'])->name('profile');
     Route::get('/{username}',[ProfileController::class, 'index']);
     Route::get('/{username}/parameter',[ProfileController::class, 'profileParameter']);
-    
+    Route::get('/{username}/parameter/{url}',[ProfileController::class, 'Parameter']);
+    Route::post('/updateuser', [UsersController::class, 'updateUser']);
 });
