@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostsController;
 use App\Http\Middleware\Authen;
 use Illuminate\Http\Request;
 
@@ -38,10 +39,15 @@ Route::middleware(['connectedUsers'])->group(function () {
 });
 
 Route::middleware(['notConnectedUsers'])->group(function () {
+    
     Route::get('/home', [HomeController::class, 'index']);
-    
+    Route::get('/home/travaux', [HomeController::class, 'Search']);
+
     Route::get('/disconnect',[UsersController::class, 'UserDisconnect']);
-    
+
+    Route::get('/newpost',[PostsController::class, 'newpost']);
+    Route::post('/addnewpost', [PostsController::class, 'Create']);
+
     Route::get('/profile/{username}',[ProfileController::class, 'getProfile'])->name('profile');
     Route::get('/{username}',[ProfileController::class, 'index']);
     Route::get('/{username}/parameter',[ProfileController::class, 'profileParameter']);

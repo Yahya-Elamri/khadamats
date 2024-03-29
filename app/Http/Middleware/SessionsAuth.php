@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use App\Models\UserCreation;
 
 class SessionsAuth
 {
@@ -15,9 +16,12 @@ class SessionsAuth
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if ($request->session()->get('id', $request->id) == NULL) {
+        $id = $request->session()->get('id');
+        if ($id == NULL) {
             return redirect("/login");
         }
+        $UserData = UserCreation::select('*')->where('id',$id)->get();
+        $request->attributes->add(['UserData' => $UserData]);
         return $next($request);
     }
 }

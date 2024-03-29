@@ -38,18 +38,24 @@
                 <input class="focus:border-none focus:outline-none w-[90%] bg-transparent" type="text" placeholder="Que Recherchez-vous">
             </div>
             <div class="flex gap-4 items-center">
-                <div class="rounded-full cursor-pointer border border-[#d5e0d5] p-2 hidden md:block">
-                    @include('icons.menu',['width' => '25px'])
+                <div class="relative inline-block">
+                    <div class="rounded-full cursor-pointer border border-[#d5e0d5] p-2 hidden md:block" onclick="toggleDropdown('myDropdown1')">
+                        @include('icons.menu',['width' => '25px'])
+                    </div>
+                    <div class="hidden bg-[#f9f9f9] w-[300px] border rounded-xl border-[#d5e0d5] absolute top-[60px] -right-1/3" id="myDropdown1">
+                        <a class="block px-4 py-2 hover:bg-[#f1f1f1] rounded-xl poppins-regular" href="/{{ $data->username }}/posts">Gérer les publications</a>
+                        <a class="block px-4 py-2 hover:bg-[#f1f1f1] rounded-xl poppins-regular" href="/newpost">Créer un nouveau post</a>
+                    </div>
                 </div>
-                <div class="rounded-full cursor-pointer border border-[#d5e0d5] p-2 hidden md:block">
-                    @include('icons.notification',['width' => '25px'])
-                </div>
+                    <div class="rounded-full cursor-pointer border border-[#d5e0d5] p-2 hidden md:block" >
+                        @include('icons.notification',['width' => '25px'])
+                    </div>
                 <div class="dropdown">
-                    <div class="w-[56px] h-[56px] cursor-pointer bg-cover bg-center rounded-full dropbtn border border-[#d5e0d5]" style="background-image: url(/profileimages/{{ $data->profile_image }})" onclick="toggleDropdown()"></div>
-                    <div class="dropdown-content hidden bg-[#f9f9f9] border rounded-xl border-[#d5e0d5] absolute top-[55px] right-0" id="myDropdown">
-                        <a class="block px-4 py-2" href="/{{ $data->username }}">Profile</a>
-                        <a class="block px-4 py-2" href="/{{ $data->username }}/parameter">Parameter</a>
-                        <a class="block px-4 py-2" href="/disconnect">Se Deconnecter</a>
+                    <div class="w-[56px] h-[56px] cursor-pointer bg-cover bg-center rounded-full border border-[#d5e0d5]" style="background-image: url(/profileimages/{{ $data->profile_image }})" onclick="toggleDropdown('myDropdown')"></div>
+                    <div class="dropdown-content hidden bg-[#f9f9f9] border rounded-xl w-[200px] border-[#d5e0d5] absolute top-[66px] -right-1/3" id="myDropdown">
+                        <a class="block px-4 py-2 poppins-regular" href="/{{ $data->username }}">Profile</a>
+                        <a class="block px-4 py-2 poppins-regular" href="/{{ $data->username }}/parameter">Parameter</a>
+                        <a class="block px-4 py-2 poppins-regular text-md" href="/disconnect">Se Deconnecter</a>
                     </div>
                 </div>
             </div>
@@ -57,22 +63,10 @@
     </div>
 </div>
 <script>
-// Inline script for simplicity, but consider using an external JS file in production
-function toggleDropdown() {
-  document.getElementById("myDropdown").classList.toggle("show");
+
+function toggleDropdown(DivId) {
+  document.getElementById(DivId).classList.toggle("show");
 }
 
-// Close the dropdown menu if the user clicks outside of it
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    for (var i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-}
 </script>
 @endforeach

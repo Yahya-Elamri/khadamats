@@ -8,8 +8,7 @@ use App\Models\UserCreation;
 class ProfileController extends Controller
 {
     function index(Request $request,$username) {
-        $id = $request->session()->get('id');
-        $UserData = UserCreation::select('*')->where('id',$id)->where('username',$username)->get();
+        $UserData = $request->get('UserData');
         if($UserData->isEmpty()){
             return abort(404);
         }
@@ -17,14 +16,12 @@ class ProfileController extends Controller
     }
 
     function profileParameter(Request $request,$username){
-        $id = $request->session()->get('id');
-        $UserData = UserCreation::select('*')->where('id',$id)->where('username',$username)->get();
+        $UserData = $request->get('UserData');
         return view('connectedUsers.components.informationpersonnelle',['UserData' => $UserData]);
     }
 
     function Parameter(Request $request,$username,$url){
-        $id = $request->session()->get('id');
-        $UserData = UserCreation::select('*')->where('id',$id)->where('username',$username)->get();
+        $UserData = $request->get('UserData');
         if($url == 'informationpersonnelle'){
             return view('connectedUsers.components.informationpersonnelle',['UserData' => $UserData]);
         }
@@ -43,7 +40,7 @@ class ProfileController extends Controller
     function getProfile(Request $request,$username){
         if ($username) {
             $id = $request->session()->get('id');
-            $UserData = UserCreation::select('*')->where('id',$id)->get();
+            $UserData = $request->get('UserData');
             $User = UserCreation::select('*')->where('username',$username)->get();
     
             foreach($User as $data){

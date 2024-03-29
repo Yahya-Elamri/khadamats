@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('proffession')->nullable();
             $table->string('diplome')->nullable();
             $table->string('experience')->nullable();
+            $table->string('disponibilite')->nullable();
             $table->boolean('availabilite')->default(0);
             $table->timestamps();
         });

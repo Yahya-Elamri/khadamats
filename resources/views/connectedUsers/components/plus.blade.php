@@ -1,7 +1,8 @@
 @extends('connectedUsers.profileParameter')
 @section('content')
 @foreach($UserData as $data)
-        <form action="/updateuser" method="post" class="w-[90%] lg:w-[50%] flex flex-col gap-5 justify-between items-start" enctype="multipart/form-data">
+        <form action="/updateuser" method="post" class="w-full lg:w-[70%] flex flex-col gap-5 justify-between items-start" enctype="multipart/form-data">
+            <h1 class="poppins-regular text-2xl mb-5 underline">Plus</h1>
             @csrf
             <div class="w-full flex flex-col gap-2">
                 <label class="poppins-regular text-lg" for="description">Description</label>

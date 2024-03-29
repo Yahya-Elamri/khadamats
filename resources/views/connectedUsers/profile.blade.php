@@ -1,7 +1,8 @@
 @extends('connectedUsers.master')
 @section('contents')
 @foreach($UserData as $data)
-    <div class="container flex items-start gap-5 mx-auto my-20 border border-[#d5e0d5] p-4 rounded-xl">
+<div class="w-full mx-auto h-[85vh] flex items-start flex-col justify-center">
+    <div class="container flex items-start gap-5 mx-auto my-20 border border-[#d5e0d5] p-20 rounded-xl">
         <div class="w-[30%] flex flex-col items-start gap-3 ">
             <div class="w-[100px] h-[100px] relative md:w-[150px] md:h-[150px] bg-cover bg-center rounded-full border border-[#d5e0d5]" style="background-image: url(/profileimages/{{ $data->profile_image }})">
                 @if ($data->availabilite == 0)
@@ -32,7 +33,7 @@
                         @endif
                     </li>
                     <li class="poppins-regular text-xl md:text-2xl capitalize flex items-center gap-2">
-                        <span>@include('icons.gps',['width'=>'30px'])</span>
+                        <span>@include('icons.gps',['width'=>'30px','color'=>'#000000'])</span>
                         {{ $data->adresse }}
                     </li>
                     <li>
@@ -128,5 +129,6 @@
                 </div>
         </div>
     </div>
+</div>
 @endforeach
 @endsection

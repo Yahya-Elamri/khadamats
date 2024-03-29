@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use App\Models\UserCreation;
 
 class Users
 {
@@ -15,7 +16,10 @@ class Users
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if ($request->session()->get('id') != NULL) {
+        $id = $request->session()->get('id');
+        $UserData = UserCreation::select('*')->where('id',$id)->get();
+        $request->attributes->add(['UserData' => $UserData]);
+        if ($id != NULL) {
             return redirect("/home");
         }
         return $next($request);
