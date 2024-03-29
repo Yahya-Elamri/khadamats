@@ -45,6 +45,7 @@
                     <div class="hidden bg-[#f9f9f9] w-[300px] border rounded-xl border-[#d5e0d5] absolute top-[60px] -right-1/3" id="myDropdown1">
                         <a class="block px-4 py-2 hover:bg-[#f1f1f1] rounded-xl poppins-regular" href="/{{ $data->username }}/posts">Gérer les publications</a>
                         <a class="block px-4 py-2 hover:bg-[#f1f1f1] rounded-xl poppins-regular" href="/newpost">Créer un nouveau post</a>
+                        
                     </div>
                 </div>
                     <div class="rounded-full cursor-pointer border border-[#d5e0d5] p-2 hidden md:block" >
