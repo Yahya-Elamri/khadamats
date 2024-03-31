@@ -37,4 +37,14 @@ class PostsController extends Controller
         ]);
         return redirect('/home')->with('success', 'Post created successfully.');
     }
+    public function getConnectedUserPosts(Request $request){
+        $UserData = $request->get('UserData');
+        $Posts = UserPosts::where("user_id",$request->session()->get('id'))->get();
+        return view('connectedUsers.gererPosts',['UserData' => $UserData , 'Posts'=> $Posts]);
+    }
+    public function getPosts(Request $request,$id){
+        $UserData = $request->get('UserData');
+        $Posts = UserPosts::with('userCreation')->where("id",$id)->get();
+        return view('connectedUsers.posts',['UserData' => $UserData , 'Posts'=> $Posts]);
+    }
 }

@@ -10,7 +10,7 @@ class HomeController extends Controller
 {
     function index(Request $request) {
         $UserData = $request->get('UserData');
-        $allUsers =  UserPosts::with('userCreation')->get();
+        $allUsers =  UserPosts::orderBy('created_at', 'desc')->get();
         return view('connectedUsers.home',['UserData' => $UserData,'allUsers'=>$allUsers]);
     }
 

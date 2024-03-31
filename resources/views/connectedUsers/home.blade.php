@@ -73,6 +73,7 @@
         </div>
         <div class="flex flex-col items-start justify-start w-[70%]">
             @foreach ($allUsers as $user)
+            <a href="/post/{{ $user->id }}">
                 <div class="flex flex-col items-start w-full justify-start gap-6 border-t border-[#d5e0d5] hover:bg-green-50 cursor-pointer px-4 py-7">
                     <div class="flex flex-col gap-4">
                         <div class="flex flex-col gap-2">
@@ -109,6 +110,7 @@
                                 </div>
                     </span>
                 </div>
+            </a>
             @endforeach
         </div>
     </div>

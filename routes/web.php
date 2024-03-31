@@ -48,8 +48,11 @@ Route::middleware(['notConnectedUsers'])->group(function () {
     Route::get('/newpost',[PostsController::class, 'newpost']);
     Route::post('/addnewpost', [PostsController::class, 'Create']);
 
+    Route::get('/post/{id}',[PostsController::class, 'getPosts']);
+
     Route::get('/profile/{username}',[ProfileController::class, 'getProfile'])->name('profile');
     Route::get('/{username}',[ProfileController::class, 'index']);
+    Route::get('/{username}/posts',[PostsController::class, 'getConnectedUserPosts']);
     Route::get('/{username}/parameter',[ProfileController::class, 'profileParameter']);
     Route::get('/{username}/parameter/{url}',[ProfileController::class, 'Parameter']);
     Route::post('/updateuser', [UsersController::class, 'updateUser']);

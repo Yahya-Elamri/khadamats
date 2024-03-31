@@ -32,10 +32,12 @@
         </div>
         <div class="flex gap-2 md:gap-5 lg:gap-12 items-center justify-end w-[60%]">
             <div class="sm:flex items-center hidden w-[70%] md:w-[50%]  justify-between border-[#d5e0d5] border-[1px] rounded-full px-4 py-2">
-                <div class="w-[25px]">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="full" fill="none" aria-hidden="true" viewBox="0 0 24 24" role="img"><path vector-effect="non-scaling-stroke" stroke="var(--icon-color, #001e00)" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M10.688 18.377a7.688 7.688 0 100-15.377 7.688 7.688 0 000 15.377zm5.428-2.261L21 21"></path></svg>
-                </div>
-                <input class="focus:border-none focus:outline-none w-[90%] bg-transparent" type="text" placeholder="Que Recherchez-vous">
+                <form action="/home/travaux" method="GET" class="w-full flex items-center gap-3">
+                    <div class="w-[25px]">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="full" fill="none" aria-hidden="true" viewBox="0 0 24 24" role="img"><path vector-effect="non-scaling-stroke" stroke="var(--icon-color, #001e00)" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M10.688 18.377a7.688 7.688 0 100-15.377 7.688 7.688 0 000 15.377zm5.428-2.261L21 21"></path></svg>
+                    </div>
+                    <input class="focus:border-none focus:outline-none w-[90%] bg-transparent" name="search" type="text" placeholder="Que Recherchez-vous">
+                </form>
             </div>
             <div class="flex gap-4 items-center">
                 <div class="relative inline-block">
