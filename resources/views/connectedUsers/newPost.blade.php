@@ -1,6 +1,7 @@
 @extends('connectedUsers.master')
 @section('head_content')
 @vite('resources/css/multi-select-tag.css')
+<link rel="shortcut icon" href="assets/tag.png" type="image/x-icon">
 @endsection
 @section('contents')
 <div class="w-full mx-auto h-screen flex items-start flex-col justify-center my-10">

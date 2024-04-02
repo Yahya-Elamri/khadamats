@@ -85,8 +85,10 @@
                                 @else
                                     <p class="poppins-regular text-sm text-slate-500">Posted il y a {{ now()->format('s') - $user->created_at->format('s')}} Second</p >
                                 @endif
-                            @else
+                            @elseif(now()->format('m') == $user->created_at->format('m'))
                                 <p class="poppins-regular text-sm text-slate-500">Posted il y a {{ now()->format('d') - $user->created_at->format('d') }} jour</p >
+                            @else
+                                <p class="poppins-regular text-sm text-slate-500">Posted il y a {{ now()->format('m') - $user->created_at->format('m') }} mois</p >
                             @endif
                             <h1 class="poppins-regular text-3xl capitalize">{{ $user->title }}</h1>
                         </div>

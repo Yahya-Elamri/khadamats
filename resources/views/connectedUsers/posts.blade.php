@@ -11,16 +11,18 @@
                 <div class="flex items-center gap-3">
                     <h1 class="poppins-regular text-xl">Date </h1>
                     @if($user->created_at->format('d:m:y') == now()->format('d:m:y'))
-                                    @if(now()->format('H') - $user->created_at->format('H') > 0)
-                                        <p class="poppins-regular text-xl text-slate-500">Posted il y a {{ now()->format('H') - $user->created_at->format('H') }} heure</p >
-                                    @elseif(now()->format('i') - $user->created_at->format('i') > 0)
-                                        <p class="poppins-regular text-xl text-slate-500">Posted il y a {{ now()->format('i') - $user->created_at->format('i') }} minute</p >
-                                    @else
-                                        <p class="poppins-regular text-xl text-slate-500">Posted il y a {{ now()->format('s') - $user->created_at->format('s')}} Second</p >
-                                    @endif
+                                @if(now()->format('H') - $user->created_at->format('H') > 0)
+                                    <p class="poppins-regular text-xl text-slate-500">Posted il y a {{ now()->format('H') - $user->created_at->format('H') }} heure</p >
+                                @elseif(now()->format('i') - $user->created_at->format('i') > 0)
+                                    <p class="poppins-regular text-xl text-slate-500">Posted il y a {{ now()->format('i') - $user->created_at->format('i') }} minute</p >
                                 @else
-                                    <p class="poppins-regular text-xl text-slate-500">Posted il y a {{ now()->format('d') - $user->created_at->format('d') }} jour</p >
+                                    <p class="poppins-regular text-xl text-slate-500">Posted il y a {{ now()->format('s') - $user->created_at->format('s')}} Second</p >
                                 @endif
+                            @elseif(now()->format('m') == $user->created_at->format('m'))
+                                <p class="poppins-regular text-xl text-slate-500">Posted il y a {{ now()->format('d') - $user->created_at->format('d') }} jour</p >
+                            @else
+                                <p class="poppins-regular text-xl text-slate-500">Posted il y a {{ now()->format('m') - $user->created_at->format('m') }} mois</p >
+                            @endif
                 </div>
                 <div class="flex items-center gap-3">
                     <h1 class="poppins-regular text-xl">Adresse</h1>
