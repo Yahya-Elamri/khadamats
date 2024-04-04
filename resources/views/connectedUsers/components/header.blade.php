@@ -31,8 +31,15 @@
             </ul>
         </div>
         <div class="flex gap-2 md:gap-5 lg:gap-12 items-center justify-end w-[60%]">
-            <div class="sm:flex items-center hidden w-[70%] md:w-[50%]  justify-between border-[#d5e0d5] border-[1px] rounded-full px-4 py-2">
-                <form action="/home/travaux" method="GET" class="w-full flex items-center gap-3">
+            <div class="sm:flex items-center hidden w-[70%] md:w-[50%] justify-between flex-row-reverse border-[#d5e0d5] border-[1px] rounded-full px-4 py-2 gap-3">
+                <div class="relative inline-block">
+                    <select class="py-1 px-4 poppins-regular border border-[#d5e0d5] rounded-full " id="myDropdown2" name="options" onchange="getValue()">
+                        <option value="travaux">Les Professions</option>
+                        <option value="professionnel">Professionnel</option>
+                        <option value="Option3">Recherche Rapide</option>
+                    </select>
+                </div>
+                <form id="searchFrom" action="/home/travaux" method="GET" class="w-full flex items-center gap-3" >
                     <div class="w-[25px]">
                         <svg xmlns="http://www.w3.org/2000/svg" width="full" fill="none" aria-hidden="true" viewBox="0 0 24 24" role="img"><path vector-effect="non-scaling-stroke" stroke="var(--icon-color, #001e00)" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M10.688 18.377a7.688 7.688 0 100-15.377 7.688 7.688 0 000 15.377zm5.428-2.261L21 21"></path></svg>
                     </div>
@@ -44,10 +51,9 @@
                     <div class="rounded-full cursor-pointer border border-[#d5e0d5] p-2 hidden md:block" onclick="toggleDropdown('myDropdown1')">
                         @include('icons.menu',['width' => '25px'])
                     </div>
-                    <div class="hidden bg-[#f9f9f9] w-[300px] border rounded-xl border-[#d5e0d5] absolute top-[60px] -right-1/3" id="myDropdown1">
+                    <div class="hidden bg-[#f9f9f9] w-[250px] border rounded-xl border-[#d5e0d5] absolute top-[60px] -right-1/3" id="myDropdown1">
                         <a class="block px-4 py-2 hover:bg-[#f1f1f1] rounded-xl poppins-regular" href="/{{ $data->username }}/posts">Gérer les publications</a>
                         <a class="block px-4 py-2 hover:bg-[#f1f1f1] rounded-xl poppins-regular" href="/newpost">Créer un nouveau post</a>
-                        
                     </div>
                 </div>
                     <div class="rounded-full cursor-pointer border border-[#d5e0d5] p-2 hidden md:block" >
@@ -66,10 +72,17 @@
     </div>
 </div>
 <script>
-
 function toggleDropdown(DivId) {
   document.getElementById(DivId).classList.toggle("show");
 }
+</script>
+<script>
 
+function getValue() {
+    Value = document.getElementById("myDropdown2").value;
+    console.log(Value)
+    var actionUrl = '/home/' + Value;
+    document.getElementById('searchFrom').action = actionUrl;
+}
 </script>
 @endforeach

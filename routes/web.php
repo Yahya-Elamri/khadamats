@@ -42,6 +42,7 @@ Route::middleware(['notConnectedUsers'])->group(function () {
     
     Route::get('/home', [HomeController::class, 'index']);
     Route::get('/home/travaux', [HomeController::class, 'Search']);
+    Route::get('/home/professionnel', [HomeController::class, 'SearchUsers']);
 
     Route::get('/disconnect',[UsersController::class, 'UserDisconnect']);
 
