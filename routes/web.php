@@ -5,6 +5,7 @@ use App\Http\Controllers\UsersController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostsController;
+use App\Http\Controllers\OffersController;
 use App\Http\Middleware\Authen;
 use Illuminate\Http\Request;
 
@@ -50,10 +51,14 @@ Route::middleware(['notConnectedUsers'])->group(function () {
     Route::post('/addnewpost', [PostsController::class, 'Create']);
 
     Route::get('/post/{id}',[PostsController::class, 'getPosts']);
+    Route::post('/addnewoffer/{id}', [OffersController::class, 'Create']);
 
     Route::get('/profile/{username}',[ProfileController::class, 'getProfile'])->name('profile');
     Route::get('/{username}',[ProfileController::class, 'index']);
     Route::get('/{username}/posts',[PostsController::class, 'getConnectedUserPosts']);
+    Route::get('/{username}/post/{id}',[PostsController::class, 'getUpdatePostPage']);
+    Route::post('/{username}/post/{id}',[PostsController::class, 'UpdatePost']);
+    Route::delete('/{username}/post/{id}',[PostsController::class, 'DeletePost']);
     Route::get('/{username}/parameter',[ProfileController::class, 'profileParameter']);
     Route::get('/{username}/parameter/{url}',[ProfileController::class, 'Parameter']);
     Route::post('/updateuser', [UsersController::class, 'updateUser']);

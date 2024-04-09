@@ -1,9 +1,9 @@
 @extends('connectedUsers.master')
 @section('contents')
 @foreach($UserData as $data)
-<div class="w-full mx-auto h-[85vh] flex items-start flex-col justify-center">
-    <div class="container flex items-start gap-5 mx-auto my-20 border border-[#d5e0d5] p-20 rounded-xl">
-        <div class="w-[30%] flex flex-col items-start gap-3 ">
+<div class="w-full mx-auto min-h-[85vh] flex items-start flex-col justify-center">
+    <div class="container flex items-start flex-wrap lg:flex-nowrap gap-5 mx-auto my-20 border border-[#d5e0d5] p-8 md:p-20 rounded-xl">
+        <div class="lg:w-[30%] flex flex-col items-start gap-3 ">
             <div class="w-[100px] h-[100px] relative md:w-[150px] md:h-[150px] bg-cover bg-center rounded-full border border-[#d5e0d5]" style="background-image: url(/profileimages/{{ $data->profile_image }})">
                 @if ($data->availabilite == 0)
                     <span class="w-6 h-6 absolute left-2 top-2 rounded-full border-4 border-white bg-slate-400"></span>
@@ -15,7 +15,7 @@
             <div class="px-5 py-4 ">
                 <ul class="flex gap-4 flex-col items-start">
                     <h1 class="poppins-regular text-xl md:text-2xl capitalize">{{ $data->nom }} {{ $data->prenom }}</h1>
-                    <li class="poppins-regular text-xl md:text-2xl capitalize flex items-center gap-2">
+                    <li class="poppins-regular text-xl lg:text-2xl capitalize flex items-center gap-2">
                         <span>@include('icons.email',['width'=>'30px'])</span>
                         {{ $data->email }}
                     </li>
@@ -52,7 +52,7 @@
                 </ul>
             </div>
         </div>
-        <div class="w-[70%] flex flex-col items-start gap-8 border-l border-[#d5e0d5] px-10">
+        <div class="lg:w-[70%] flex flex-col items-start gap-8 border-l border-[#d5e0d5] px-10">
             <div class="w-full">
                 <h1 class="w-full poppins-regular text-xl md:text-2xl uppercase">Proffesion :</h1>
                 <p>

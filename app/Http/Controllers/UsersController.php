@@ -38,11 +38,6 @@ class UsersController extends Controller
     }
 
     function updateUser(Request $request){
-        $request->validate([
-            'image' => 'image|mimes:jpeg,png,jpg|max:1024',
-            'categorie' => ['required', 'array', 'size:3'],
-            'categorie.*' => ['required', 'string', 'distinct', 'in:Services de Santé et de Soins,Services Informatique et Technologique,Services éducatif et de formation,Services de transport et de livraison,Services de maintenace et de reparation,Services domestiques / menage,Services de construction,Services financieres et comptables,Services juridiques et legau,Services artisanaux,Autres'],
-        ]);
         if($request->nom){
             UserCreation::where('id',$request->session()->get('id'))->update(['nom' => $request->nom]);
         }

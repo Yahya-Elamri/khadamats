@@ -1,4 +1,11 @@
+@use('App\Models\UserOffers')
 @extends('connectedUsers.master')
+@section('head_content')
+<link rel="shortcut icon" href="/assets/tag.png" type="image/x-icon">
+@endsection
+@section('title')
+khadamats
+@endsection
 @section('contents')
 <style>
 .toast {
@@ -53,11 +60,22 @@
             <tbody class="bg-white">
                 @foreach($Posts as $Post) 
                 <tr class="border-b">
-                    <td class="px-6 py-4 border-r poppins-regular text-xl border-gray-200 hover:bg-emerald-50 cursor-pointer text-center">{{$Post->title}}</td>
-                    <td class="px-6 py-4 border-r poppins-regular text-xl border-gray-200 hover:bg-emerald-50 cursor-pointer text-center">le total de vos offres actuelles est 25</td>
+                    <td class="px-6 py-4 border-r poppins-regular text-xl border-gray-200 hover:bg-emerald-50 cursor-pointer text-center"><a href="/post/{{$Post->id}}">{{$Post->title}}</a></td>
+                    <td class="px-6 py-4 border-r poppins-regular text-xl border-gray-200 hover:bg-emerald-50 cursor-pointer text-center"><a href="/post/{{$Post->id}}">le total de vos offres actuelles est 
+                    @php
+                        $OfferCount = UserOffers::where('post_id', $Post->id)->count();
+                    @endphp
+                        {{$OfferCount}}
+                    </a></td>
                     <td onclick="copyText({{$Post->id}})" class="px-6 py-4 border-r border-gray-200 poppins-regular text-xl hover:bg-emerald-50 cursor-pointer text-center relative"><div id="{{$Post->id}}" >localhost:8000/post/{{$Post->id}}</div> <div id="{{$Post->id}}/2" class="toast" >localhost:8000/post/{{$Post->id}}</div></td>
-                    <td class="px-6 py-4 border-r border-gray-200 poppins-regular text-xl hover:bg-emerald-50 cursor-pointer capitalize text-center"><a href="" class="hover:text-[#44baae] hover:underline">modifier ici</a></td>
-                    <td class="px-6 py-4 border-r poppins-regular text-xl border-gray-200 hover:bg-emerald-50 cursor-pointer text-center"><button class="border border-[#e5e7eb] px-6 py-2 rounded-full w-2/3 hover:bg-white">Supprimer</button></td>
+                    <td class="px-6 py-4 border-r border-gray-200 poppins-regular text-xl hover:bg-emerald-50 cursor-pointer capitalize text-center"><a href="/{{$Post->userCreation->username}}/post/{{$Post->id}}" class="hover:text-[#44baae] hover:underline">modifier ici</a></td>
+                    <td class="px-6 py-4 border-r poppins-regular text-xl border-gray-200 hover:bg-emerald-50 cursor-pointer text-center">
+                        <form action="/{{$Post->userCreation->username}}/post/{{$Post->id}}" method="POST" class="d-inline">
+                            @csrf
+                            @method('DELETE')
+                            <button class="border border-[#e5e7eb] px-6 py-2 rounded-full w-2/3 hover:bg-white" onclick="return confirm('Are you sure?')">Supprimer</button>
+                        </form>    
+                    </td>
                 </tr>
                 @endforeach
             </tbody>

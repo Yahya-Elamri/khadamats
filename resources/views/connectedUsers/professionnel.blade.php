@@ -14,7 +14,7 @@
     </div>
     <div class="container mx-auto my-10 flex items-start justify-start px-20">
         <div class="w-[30%]">
-            <form action="/home/travaux" method="GET" class="flex flex-col gap-5 px-6">
+            <form action="/home/professionnel" method="GET" class="flex flex-col gap-5 px-6">
                 <div class="flex flex-col gap-3">
                     <h1 class="poppins-regular text-2xl">Categories</h1>
                     <div class="flex flex-col gap-1">
@@ -66,11 +66,11 @@
                 </div>
                 <div class="flex flex-col gap-3">
                     <h1 class="poppins-regular text-2xl">Experience</h1>
-                    <input type="text" placeholder="Adresse" name="adresse" class="border border-[#d5e0d5] px-6 py-2 rounded-xl">
+                    <input type="text" placeholder="Experience" name="experience" class="border border-[#d5e0d5] px-6 py-2 rounded-xl">
                 </div>
                 <div class="flex flex-col gap-3">
                     <h1 class="poppins-regular text-2xl">Reviews</h1>
-                    <input type="text" placeholder="Adresse" name="adresse" class="border border-[#d5e0d5] px-6 py-2 rounded-xl">
+                    <input type="text" placeholder="Reviews" name="reviews" class="border border-[#d5e0d5] px-6 py-2 rounded-xl">
                 </div>
                 <div class="flex flex-col gap-3">
                     <h1 class="poppins-regular text-2xl">Adresse</h1>

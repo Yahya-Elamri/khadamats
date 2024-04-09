@@ -4,26 +4,27 @@
 <link rel="shortcut icon" href="assets/tag.png" type="image/x-icon">
 @endsection
 @section('contents')
+@foreach($Posts as $Post)
 <div class="w-full mx-auto min-h-screen flex items-start flex-col justify-center my-10">
     <div class="container flex mx-auto gap-3 items-start justify-center h-full my-10 p-20 rounded-xl border border-[#d5e0d5]">
-        <h1 class="text-3xl poppins-regular w-[30%] px-4 py-5 border-l-4 border-[#d5e0d5]">Créer un nouveau post</h1>
-        <form action="/addnewpost" method="POST" class="w-[70%] flex justify-start flex-col gap-5 items-start border-l border-[#d5e0d5] px-20">
+        <h1 class="text-3xl poppins-regular w-[30%] px-4 py-5 border-l-4 border-[#d5e0d5]">{{$Post->title}}</h1>
+        <form action="/{{$Post->userCreation->username}}/post/{{$Post->id}}" method="POST" class="w-[70%] flex justify-start flex-col gap-5 items-start border-l border-[#d5e0d5] px-20">
             @csrf
             <div class="w-[80%] flex flex-col gap-2">
-                <label class="poppins-regular text-lg" for="title" required>Titre</label>
-                <input class="border border-[#d5e0d5] px-6 py-2 rounded-xl" id="title" name="title" type="text" placeholder="Titre" required>
+                <label class="poppins-regular text-lg" for="title">Titre</label>
+                <input class="border border-[#d5e0d5] px-6 py-2 rounded-xl" id="title" name="title" type="text" placeholder="{{$Post->title}}">
             </div>
             <div class="w-[80%] flex flex-col gap-2">
                 <label class="poppins-regular text-lg" for="description">Description</label>
-                <textarea class="border border-[#d5e0d5] px-6 py-2 rounded-xl" rows="8" cols="50" id="description" name="description" placeholder="Description" required></textarea>
+                <textarea class="border border-[#d5e0d5] px-6 py-2 rounded-xl" rows="8" cols="50" id="description" name="description" placeholder="{{$Post->description}}"></textarea>
             </div>
             <div class="w-[80%] flex flex-col gap-2">
                 <label class="poppins-regular text-lg" for="proffession">Métier Recherché</label>
-                <input class="border border-[#d5e0d5] px-6 py-2 rounded-xl" id="proffession" name="proffession" type="text" placeholder="Métier Recherché" required>
+                <input class="border border-[#d5e0d5] px-6 py-2 rounded-xl" id="proffession" name="proffession" type="text" placeholder="{{$Post->proffession}}">
             </div>
             <div class="w-[80%] flex flex-col gap-2">
                 <label class="poppins-regular text-lg" for="categorie">Categories Recherché</label>
-                <select class="border border-[#d5e0d5] px-6 py-2 poppins-regular text-lg rounded-xl block appearance-none w-full bg-gray-200  text-gray-700 pr-8 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="categorie" placeholder="Categories" name="categorie[]" multiple required>
+                <select class="border border-[#d5e0d5] px-6 py-2 poppins-regular text-lg rounded-xl block appearance-none w-full bg-gray-200  text-gray-700 pr-8 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="categorie" placeholder="Categories" name="categorie[]" multiple>
                     <option value="Services de Santé et de Soins">Services de Santé et de Soins</option>
                     <option value="Services Informatique et Technologique">Services Informatique et Technologique</option>
                     <option value="Services éducatif et de formation">Services éducatif et de formation</option>
@@ -39,9 +40,9 @@
             </div>
             <div class="w-[80%] flex flex-col gap-2">
                 <label class="poppins-regular text-lg" for="adresse">Localisation</label>
-                <input class="border border-[#d5e0d5] px-6 py-2 rounded-xl" id="adresse" name="adresse" type="text" placeholder="Localisation" required>
+                <input class="border border-[#d5e0d5] px-6 py-2 rounded-xl" id="adresse" name="adresse" type="text" placeholder="{{$Post->adresse}}">
             </div>
-            <button class="poppins-regular bg-[#44baae] px-4 py-2 rounded-full text-white hover:bg-[#286d66]" type="submit">Créer Votre Post</button>
+            <button class="poppins-regular bg-[#44baae] px-4 py-2 rounded-full text-white hover:bg-[#286d66]" type="submit">Mettre à jour votre Publication</button>
         </form>
     </div>
 </div>
@@ -58,4 +59,5 @@
         }
     })
 </script>
+@endforeach
 @endsection

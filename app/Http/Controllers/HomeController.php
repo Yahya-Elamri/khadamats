@@ -62,13 +62,21 @@ class HomeController extends Controller
     }
     function SearchUsers(Request $request){
         $UserData = $request->get('UserData');
-        if($request->search){
-            $allUsers = UserCreation::where('adresse', 'like', "%$request->search%")
-                ->orwhere('description', 'like', "%$request->search%")
-                ->orwhere('proffession', 'like', "%$request->search%")
+        $Search = $request->query('search');
+        $adresse = $request->input('adresse');
+        $proffession = $request->input('proffession');
+        $experience = $request->input('experience');
+        $categorie = $request->input('categorie');
+        if($categorie){
+            $CategorieString = implode(',', $categorie);
+        }
+        if($Search){
+            $allUsers = UserCreation::where('proffession', 'like', "%$request->search%")
                 ->orwhere('categorie', 'like', "%$request->search%")
-                ->orwhere('experience', 'like', "%$request->search%")
                 ->orwhere('diplome', 'like', "%$request->search%")
+                ->get();
+        }elseif($categorie){
+            $allUsers = UserCreation::where('categorie', 'like', "%$CategorieString%")
                 ->get();
         }else return redirect('/home');
         return view('connectedUsers.professionnel',['UserData' => $UserData,'allUsers'=>$allUsers]);

@@ -1,7 +1,10 @@
 @extends('connectedUsers.master')
+@section('head_content')
+<link rel="shortcut icon" href="/assets/tag.png" type="image/x-icon">
+@endsection
 @section('contents')
 @foreach($UserData as $data)
-<div class="w-full mx-auto h-screen flex items-start flex-col justify-center">
+<div class="w-full mx-auto min-h-screen flex items-start flex-col justify-center">
     <div class="container flex mx-auto justify-between items-start border border-[#d5e0d5] h-[90%] p-20 rounded-xl my-10">
         <div class="w-[30%] flex flex-col gap-6 p-4 mx-10">
             <h1 class="text-3xl poppins-regular">Paramèter</h1>
