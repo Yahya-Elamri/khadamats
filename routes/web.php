@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\OffersController;
+use App\Http\Controllers\ReviewsController;
 use App\Http\Middleware\Authen;
 use Illuminate\Http\Request;
 
@@ -52,6 +53,8 @@ Route::middleware(['notConnectedUsers'])->group(function () {
 
     Route::get('/post/{id}',[PostsController::class, 'getPosts']);
     Route::post('/addnewoffer/{id}', [OffersController::class, 'Create']);
+
+    Route::post('/addreview', [ReviewsController::class, 'Create']);
 
     Route::get('/profile/{username}',[ProfileController::class, 'getProfile'])->name('profile');
     Route::get('/{username}',[ProfileController::class, 'index']);

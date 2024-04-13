@@ -192,7 +192,7 @@
             <h1 class="poppins-regular text-3xl capitalize px-4 py-7 border-t border-[#d5e0d5] w-full">les offres actuelles</h1>
             <div class="w-full">
                 @foreach($Offers as $offer)
-                <a href="/profile/{{$offer->userCreation->username}}">
+                <a href="/profile/{{$offer->userCreation->username}}?post_id={{ $user->id }}">
                     <div class="flex flex-col items-start gap-3 border-t border-[#d5e0d5] hover:bg-green-50 px-4 py-7 w-[90%] first:border-none">
                         <div class="flex items-center gap-3">
                             <div class="w-[60px] h-[60px] relative bg-cover bg-center rounded-full border border-[#d5e0d5]" style="background-image: url(/profileimages/{{ $offer->userCreation->profile_image }})">

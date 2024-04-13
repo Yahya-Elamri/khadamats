@@ -121,7 +121,7 @@
                     </span>
                     <p class="poppins-regular text-lg w-full">{{ $user->description }}</p>
                     <div>
-                        @if ($user->experience == NULL)
+                        @if ($user->diplome == NULL)
                             <p class="poppins-regular text-lg w-full">Diplome : aucun diplôme ajouté</p>
                         @else
                             <p class="poppins-regular text-lg w-full">Diplome : {{ $user->diplome}}</p>

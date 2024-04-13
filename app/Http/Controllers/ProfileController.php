@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\UserCreation;
+use App\Models\UserReviews;
 
 class ProfileController extends Controller
 {
@@ -48,8 +49,15 @@ class ProfileController extends Controller
                     return redirect('/'.$data->username);
                 }
             }
-            
-            return view('profile',['UserData' => $UserData,'User' => $User]);
+
+            $Reviews = UserReviews::with('userCreation')->where('receiving_user_id',$data->id)->get();
+            $ReviewSum = UserReviews::where('receiving_user_id', $data->id)->sum('rating');
+            $ReviewCount = UserReviews::where('receiving_user_id', $data->id)->count();
+            $Counts = UserReviews::select('rating', \DB::raw('COUNT(*) as count'))->where('receiving_user_id', $data->id)
+              ->groupBy('rating')->orderBy('rating' , 'desc')
+              ->get();
+              
+            return view('profile',['UserData' => $UserData,'User' => $User, 'Reviews'=>$Reviews,'ReviewSum'=>$ReviewSum,'ReviewCount'=>$ReviewCount,'Counts'=>$Counts]);
         }else{
             return redirect('/home');
         }

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\UserReviews;
 
 class UserCreation extends Model
 {
@@ -15,4 +16,8 @@ class UserCreation extends Model
         'categorie','proffession','diplome','experience',
         'availabilite','created_at','updated_at'
     ];
+    public function reviews()
+    {
+        return $this->hasMany(UserReviews::class);
+    }
 }
