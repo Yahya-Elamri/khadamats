@@ -10,10 +10,16 @@ class ProfileController extends Controller
 {
     function index(Request $request,$username) {
         $UserData = $request->get('UserData');
+        $Reviews = UserReviews::with('userCreation')->where('receiving_user_id',$request->session()->get('id'),)->get();
+        $ReviewSum = UserReviews::where('receiving_user_id', $request->session()->get('id'),)->sum('rating');
+        $ReviewCount = UserReviews::where('receiving_user_id', $request->session()->get('id'),)->count();
+        $Counts = UserReviews::select('rating', \DB::raw('COUNT(*) as count'))->where('receiving_user_id', $request->session()->get('id'),)
+              ->groupBy('rating')->orderBy('rating' , 'desc')
+              ->get();
         if($UserData->isEmpty()){
             return abort(404);
         }
-        return view('connectedUsers.profile',['UserData' => $UserData]);
+        return view('connectedUsers.profile',['UserData' => $UserData,'Reviews'=>$Reviews,'ReviewSum'=>$ReviewSum,'ReviewCount'=>$ReviewCount,'Counts'=>$Counts]);
     }
 
     function profileParameter(Request $request,$username){
