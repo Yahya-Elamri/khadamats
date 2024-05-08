@@ -54,17 +54,16 @@
                             <span>@include('icons.gps',['width'=>'30px','color'=>'#000000'])</span>
                             {{ $data->adresse }}
                         </li>
-                        <li>
-                            @if ($data->availabilite == 0)
+                        <li class="poppins-regular text-xl md:text-2xl capitalize flex items-center gap-2">
+                            @if ($data->telephone == NULL)
                                 <div class="flex items-center gap-3">
-                                    <span class="">@include('icons.clock',['width'=>'30px'])</span>
-                                    <span class="poppins-regular text-xl md:text-2xl capitalize">indisponible</span>
+                                    <span>pas de temps ajouté </span>
                                 </div>
                             @else
-                                <div class="flex items-center gap-3">
+                                <span class="poppins-regular text-xl md:text-2xl capitalize flex items-center gap-2">
                                     <span class="">@include('icons.clock',['width'=>'30px'])</span>
-                                    <span class="poppins-regular text-xl md:text-2xl capitalize">disponible</span>
-                                </div>
+                                    {{ $data->disponibilite }}
+                                </span> 
                             @endif
                         </li>
                     </ul>
@@ -142,6 +141,22 @@
                 </div>
             </div>
         </div>
+        @if ($data->cv == NULL)                            
+            <div class="container mx-auto">
+                <div class="max-w-lg">
+                    <h1 class="text-xl poppins-regular mb-2 capitalize">aucun CV n'a été téléchargé</h1>
+                </div>
+            </div>
+        @else
+            <div class="container mx-auto">
+                <div class="max-w-lg">
+                    <div class="mb-4">
+                        <h1 class="text-xl poppins-regular mb-2 capitalize">cv ou diplome :</h1>
+                            <iframe src="/cvs/{{ $data->cv }}" frameborder="0" width="100%" height="400" class="rounded-xl"></iframe>
+                    </div>
+                </div>
+            </div>
+        @endif
         <div class="w-[90%] flex flex-col items-start gap-5">
             <h1 class="poppins-regular text-3xl">Donner Votre Review :</h1>
             <form action="/addreview" method="post" class="w-full flex justify-start flex-col gap-5 items-start border-l border-[#d5e0d5] px-20">

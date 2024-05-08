@@ -2,7 +2,7 @@
 @section('contents')
 @foreach($UserData as $data)
 <div class="w-full mx-auto min-h-[85vh] flex items-start flex-col justify-center">
-    <div class="container flex items-start gap-40 flex-wrap lg:flex-nowrap flex-col mx-auto my-20 border border-[#d5e0d5] p-8 md:p-20 rounded-xl">
+    <div class="container flex items-start gap-32 flex-wrap lg:flex-nowrap flex-col mx-auto my-20 border border-[#d5e0d5] p-8 md:p-20 rounded-xl">
         <div class="w-full flex items-start gap-5 flex-wrap lg:flex-nowrap">
             <div class="lg:w-[30%] flex flex-col items-start gap-3 ">
                 <div class="w-[100px] h-[100px] relative md:w-[150px] md:h-[150px] bg-cover bg-center rounded-full border border-[#d5e0d5]" style="background-image: url(/profileimages/{{ $data->profile_image }})">
@@ -37,19 +37,19 @@
                             <span>@include('icons.gps',['width'=>'30px','color'=>'#000000'])</span>
                             {{ $data->adresse }}
                         </li>
-                        <li>
-                            @if ($data->availabilite == 0)
+                        <li class="poppins-regular text-xl md:text-2xl capitalize flex items-center gap-2">
+                            @if ($data->disponibilite == NULL)
                                 <div class="flex items-center gap-3">
-                                    <span class="">@include('icons.clock',['width'=>'30px'])</span>
-                                    <span class="poppins-regular text-xl md:text-2xl capitalize">indisponible</span>
+                                    <span >Disponibilite</span>
+                                    <a href="/{{ $data->username }}/parameter/informationpersonnelle">@include('icons.pen',['width' => '20px','style' =>'','color'=>'#000000'])</a>
                                 </div>
                             @else
-                                <div class="flex items-center gap-3">
+                                <span class="poppins-regular text-xl md:text-2xl capitalize flex items-center gap-2">
                                     <span class="">@include('icons.clock',['width'=>'30px'])</span>
-                                    <span class="poppins-regular text-xl md:text-2xl capitalize">disponible</span>
-                                </div>
+                                    {{ $data->disponibilite }}
+                                </span> 
                             @endif
-                        </li>
+                        </li> 
                     </ul>
                 </div>
             </div>
@@ -130,6 +130,31 @@
                     </div>
             </div>
         </div>
+        @if ($data->cv == NULL)                            
+            <div class="container mx-auto">
+                <div class="max-w-lg">
+                    <form method="POST" action="/updateuser" enctype="multipart/form-data">
+                        @csrf
+                        <div class="mb-4">
+                            <label for="cv" class="block text-gray-800 text-xl poppins-regular mb-2 capitalize">ajoutez votre CV : </label>
+                            <input type="file" name="cv" id="cv" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                        </div>
+                        <button type="submit" class="bg-emerald-100  hover:bg-emerald-200  text-black poppins-regular py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                            Save
+                        </button>
+                    </form>
+                </div>
+            </div>
+        @else
+            <div class="container mx-auto">
+                <div class="max-w-lg">
+                    <div class="mb-4">
+                        <h1 class="text-xl poppins-regular mb-2 capitalize">cv ou diplome :</h1>
+                            <iframe src="/cvs/{{ $data->cv }}" frameborder="0" width="100%" height="400" class="rounded-xl"></iframe>
+                    </div>
+                </div>
+            </div>
+        @endif
         <div class="w-full flex items-start gap-5">
             <div class="w-[30%] flex items-start gap-5 flex-col">
                 <h1 class="poppins-regular text-3xl capitalize">total d'avis vérifiés</h1>

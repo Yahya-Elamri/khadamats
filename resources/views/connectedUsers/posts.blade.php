@@ -39,7 +39,7 @@
             <a href="/profile/{{$user->userCreation->username}}" class="poppins-regular text-center bg-[#44baae] px-4 py-2 rounded-xl text-white hover:bg-[#286d66] w-full">plus d'informations</a>
         </div>
         <div class="flex flex-col items-start justify-start w-[70%]">
-            <a href="/post/{{ $user->id }}">
+            <a class="w-full" href="/post/{{ $user->id }}">
                 <div class="flex flex-col items-start w-full justify-start gap-6 border-t border-[#d5e0d5] hover:bg-green-50 cursor-pointer px-4 py-7">
                     <div class="flex flex-col gap-4">
                         <div class="flex flex-col gap-2">
@@ -47,7 +47,7 @@
                             <h1 class="poppins-regular text-3xl capitalize">{{ $user->title }}</h1>
                         </div>
                     </div>
-                    <p class="poppins-regular text-lg w-full">{{ $user->description }}</p>
+                    <p class="poppins-regular text-lg w-full overflow-hidden">{{ $user->description }}</p>
                     <span class=""><?php
                                 $words = collect(explode(',', $user->categorie))->map(function ($item) {
                                     return trim($item);

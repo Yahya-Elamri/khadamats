@@ -50,6 +50,9 @@ class UsersController extends Controller
         if($request->adresse){
             UserCreation::where('id',$request->session()->get('id'))->update(['adresse' => $request->adresse]);
         }
+        if($request->disponibilite){
+            UserCreation::where('id',$request->session()->get('id'))->update(['disponibilite' => $request->disponibilite]);
+        }
         if($request->email){
             UserCreation::where('id',$request->session()->get('id'))->update(['email' => $request->email]);
         }
@@ -74,6 +77,11 @@ class UsersController extends Controller
             $imageName = time().'.'.$request->image->extension();  
             $request->image->move(public_path('profileimages'), $imageName);
             UserCreation::where('id',$request->session()->get('id'))->update(['profile_image' => $imageName]);
+        }
+        if ($request->file('cv')) {
+            $cvName = time() * 2 .'.'.$request->file('cv')->extension();  
+            $request->file('cv')->move(public_path('cvs'), $cvName);
+            UserCreation::where('id',$request->session()->get('id'))->update(['cv' => $cvName]);
         }
         return redirect("/home");
     }

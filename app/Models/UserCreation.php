@@ -12,9 +12,9 @@ class UserCreation extends Model
     protected $table="user_creations";
     protected $fillable=[
         'id','nom','prenom','telephone','adresse','username',
-        'email','password','description','profile_image',
+        'email','password','description','profile_image','cv',
         'categorie','proffession','diplome','experience',
-        'availabilite','created_at','updated_at'
+        'availabilite','disponibilite','created_at','updated_at'
     ];
     public function reviews()
     {

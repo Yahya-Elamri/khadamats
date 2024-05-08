@@ -13,13 +13,13 @@
     }
 </style>
     
-<div class="slider-container flex justify-center items-center gap-10">
+<div class="slider-container flex justify-center items-center flex-wrap gap-10">
     <button id="prev">
         @include('icons.arrow')
     </button>
     <div>
         <div class="slide active-slide">
-            <div class="w-[600px] flex flex-col justify-center items-center gap-5 border broder-black p-4 rounded-2xl">
+            <div class=" max-w-[600px] flex flex-col justify-center items-center gap-5 border broder-black p-4 rounded-2xl">
                 <ul class="flex justify-center items-center gap-1">
                     <li>@include('icons.star')</li>
                     <li>@include('icons.star')</li>
@@ -32,7 +32,7 @@
             </div>
         </div>
         <div class="slide">
-        <div class="w-[600px] flex flex-col justify-center items-center gap-5 border broder-black p-4 rounded-2xl">
+        <div class=" max-w-[600px] flex flex-col justify-center items-center gap-5 border broder-black p-4 rounded-2xl">
                 <ul class="flex justify-center items-center gap-1">
                     <li>@include('icons.star')</li>
                     <li>@include('icons.star')</li>
@@ -45,7 +45,7 @@
             </div>
         </div>
         <div class="slide">
-        <div class="w-[600px] flex flex-col justify-center items-center gap-5 border broder-black p-4 rounded-2xl">
+        <div class=" max-w-[600px] flex flex-col justify-center items-center gap-5 border broder-black p-4 rounded-2xl">
                 <ul class="flex justify-center items-center gap-1">
                     <li>@include('icons.star')</li>
                     <li>@include('icons.star')</li>

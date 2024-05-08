@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('description')->nullable();
             $table->string('profile_image')->default("Default-profile-pic.jpg");
+            $table->string('cv')->nullable();
             $table->string('categorie')->nullable();
             $table->string('proffession')->nullable();
             $table->string('diplome')->nullable();
