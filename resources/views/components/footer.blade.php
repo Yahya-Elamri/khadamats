@@ -31,7 +31,7 @@
             </div>
             <div class="w-full flex justify-between items-start flex-wrap gap-8">
                 <div class="flex items-center gap-6 flex-wrap">
-                    <h1 class="text-2xl poppins-regular text-white">Follow Us On</h1>
+                    <h1 class="text-2xl poppins-regular text-white">Suivez-nous sur</h1>
                     <ul class="flex items-center gap-6">
                         <li class="p-2 rounded-full border border-white cursor-pointer hover:opacity-50">@include('icons.instagram',['width' => '25px'])</li>
                         <li class="p-2 rounded-full border border-white cursor-pointer hover:opacity-50">@include('icons.facebook',['width' => '25px'])</li>

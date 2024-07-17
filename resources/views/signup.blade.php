@@ -16,7 +16,7 @@
         <h1 class="poppins-regular text-[#44baae]"><a href="/login">Log in</a></h1>
     </header>
     <div class="container mx-auto w-full flex-col flex justify-center items-center px-5">
-        <h1 class="text-3xl poppins-medium h-[15vh] text-center flex items-center underline">créez votre compte ici</h1>
+        <h1 class="text-3xl poppins-medium h-[15vh] text-center flex items-center underline">Inscription</h1>
         <Form class="w-[90%] lg:w-[50%] flex flex-col gap-5 justify-between items-start" method="POST" action="/signup">
             @csrf
             <div class="flex w-full gap-3 items-center flex-col md:flex-row">
